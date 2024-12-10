@@ -1,0 +1,19 @@
+<div class="col">
+  <div class="card shadow">
+    @let event = myEvent();
+    <a [routerLink]="['/events', event.id]" >
+    <img class="card-img-top" [src]="event.image" alt="" />
+    </a>
+    <div class="card-body">
+      <h4 class="card-title" [routerLink]="['/events', event.id]" >{{ event.title }}</h4>
+      <p class="card-text">{{ event.description }}</p>
+      <button class="btn btn-danger delete" (click)="deleteEvent()">
+        <i class="bi bi-trash"></i>
+      </button>
+    </div>
+    <div class="card-footer text-muted row m-0">
+      <div class="col">{{ event.date | date: 'dd/MM/yyyy'}}</div>
+      <div class="col text-end">{{ event.price | intlCurrency : "EUR" : "es-ES" }}</div>
+    </div>
+  </div>
+</div>

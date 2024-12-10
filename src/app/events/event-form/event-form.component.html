@@ -1,0 +1,133 @@
+<form
+  class="mt-4"
+  id="newEvent"
+  [formGroup]="eventForm"
+  (ngSubmit)="addEvent()"
+>
+  <div class="mb-3">
+    <div class="mb-3">
+      <label for="title" class="form-label">Title</label>
+      <input
+        type="text"
+        class="form-control"
+        name="title"
+        formControlName="title"
+        id="title"
+        placeholder="Enter title"
+        [validationClasses]="{ valid: 'is-valid', invalid: 'is-invalid' }"
+      />
+      @let titleErrors = eventForm.get("title")?.errors;
+      @if (titleErrors?.["required"]) {
+        <div class="invalid-feedback">Title cannot be empty</div>
+      }
+      @if (titleErrors?.["pattern"]) {
+        <div class="invalid-feedback">Only letters and spaces are accepted</div>
+      }
+      @if (titleErrors?.["minlength"]) {
+        <div class="invalid-feedback">
+          You must enter at least
+          {{
+            titleErrors?.["minlength"].requiredLength -
+              titleErrors?.["minlength"].actualLength
+          }}
+          haracters more
+        </div>
+      }
+    </div>
+    <div class="mb-3">
+      <label for="date" class="form-label">Date</label>
+      <input
+        type="date"
+        class="form-control"
+        name="date"
+        formControlName="date"
+        id="date"
+        placeholder="Enter date"
+        [validationClasses]="{ valid: 'is-valid', invalid: 'is-invalid' }"
+      />
+      @let dateErrors = eventForm.get("date")?.errors;
+      @if (dateErrors?.["required"]) {
+        <div class="invalid-feedback">Date cannot be empty</div>
+      }
+      @if (dateErrors?.["minDate"]) {
+        <div class="invalid-feedback">
+          Date can't be before {{ today | date: "dd/MM/yyyy" }}
+        </div>
+      }
+    </div>
+    <div class="mb-3">
+      <label for="description" class="form-label">Description</label>
+      <textarea
+        class="form-control"
+        id="description"
+        placeholder="Enter description"
+        name="description"
+        formControlName="description"
+        rows="3"
+        [validationClasses]="{ valid: 'is-valid', invalid: 'is-invalid' }"
+      ></textarea>
+      @let descErrors = eventForm.get("description")?.errors;
+      @if (descErrors?.["required"]) {
+        <div class="invalid-feedback">Description cannot be empty</div>
+      }
+    </div>
+    <div class="mb-3">
+      <label for="price" class="form-label">Price (in €)</label>
+      <input
+        type="text"
+        class="form-control"
+        name="price"
+        formControlName="price"
+        id="prirce"
+        placeholder="Enter price"
+        [validationClasses]="{ valid: 'is-valid', invalid: 'is-invalid' }"
+      />
+      @let priceErrors = eventForm.get("price")?.errors;
+      @if (priceErrors?.["required"]) {
+        <div class="invalid-feedback">Price cannot be empty</div>
+      }
+      @if (priceErrors?.["min"]) {
+        <div class="invalid-feedback">Price cannot be lest than 0</div>
+      }
+    </div>
+
+    @let imageValue = eventForm.get("image");
+
+    <div class="mb-3">
+      <label for="image" class="form-label">Image</label>
+      <input
+        type="file"
+        class="form-control"
+        id="image"
+        name="image"
+        formControlName="image"
+        #fileImage
+        encodeBase64
+        (encoded)="imageValue?.setValue($event)"
+        [validationClasses]="{ valid: 'is-valid', invalid: 'is-invalid' }"
+      />
+      @let imageErrors = eventForm.get("date")?.errors;
+      @if (imageErrors?.["required"]) {
+        <div class="invalid-feedback">Image cannot be empty</div>
+      }
+    </div>
+
+    @if (imageValue?.value) {
+      <img
+        [src]="imageValue?.value"
+        alt="."
+        id="imgPreview"
+        class="img-thumbnail mb-3"
+      />
+    }
+    <div>
+      <button
+        type="submit"
+        class="btn btn-primary"
+        [disabled]="eventForm.invalid"
+      >
+        Submit
+      </button>
+    </div>
+  </div>
+</form>

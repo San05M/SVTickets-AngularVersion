@@ -1,0 +1,54 @@
+<nav class="navbar navbar-expand navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">SVTickets</a>
+    <ul class="navbar-nav me-auto mb-lg-0">
+      <li class="nav-item">
+        <a
+          class="nav-link"
+          [routerLink]="['/auth/login']"
+          [routerLinkActive]="['active']"
+          [routerLinkActiveOptions]="{ exact: true }"
+        >
+          Login
+        </a>
+      </li>
+      <li class="nav-item">
+        <a
+          class="nav-link"
+          [routerLink]="['/events']"
+          [routerLinkActive]="['active']"
+          [routerLinkActiveOptions]="{ exact: true }"
+        >
+          Home
+        </a>
+      </li>
+      <li class="nav-item">
+        <a
+          class="nav-link"
+          [routerLink]="['/events/add']"
+          [routerLinkActive]="['active']"
+          [routerLinkActiveOptions]="{ exact: true }"
+        >
+           New event
+        </a>
+      </li>
+      <li class="nav-item">
+        <a
+          class="nav-link"
+          [routerLink]="['/events/:id']"
+          [routerLinkActive]="['active']"
+          [routerLinkActiveOptions]="{ exact: true }"
+        >
+          Events details
+        </a>
+      </li>
+
+      <!-- <li class="nav-item">
+        <a class="nav-link" href="#" id="logout">Logout</a>
+      </li> -->
+
+    </ul>
+  </div>
+</nav>
+
+

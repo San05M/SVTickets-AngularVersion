@@ -1,0 +1,34 @@
+import { Routes } from '@angular/router';
+import { leavePageGuard } from '../shared/guards/leave-page-guard.guard';
+import { numericIdGuard } from '../shared/guards/numeric-id-guard.guard';
+import { eventResolver } from './resolvers/resolver-event.resolver';
+
+export const routes: Routes = [
+  {
+    path: '',
+    loadComponent: () =>
+      import('./events-page/events-page.component').then(
+        (m) => m.EventsPageComponent,
+      ),
+    title: 'Events',
+  },
+  {
+    path: 'add',
+    canDeactivate: [leavePageGuard],
+    loadComponent: () =>
+      import('./event-form/event-form.component').then(
+        (m) => m.EventFormComponent,
+      ),
+    title: 'New Event ',
+  },
+  {
+    path: ':id',
+    canActivate: [numericIdGuard],
+    loadComponent: () =>
+      import('./event-detail/event-detail.component').then(
+        (m) => m.EventDetailComponent,
+      ),
+    resolve: { event: eventResolver },
+    title: 'Event ',
+  },
+];
