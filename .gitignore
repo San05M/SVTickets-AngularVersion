@@ -1,54 +1,47 @@
-## Node.js
+# Node.js dependencies
 node_modules/
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-
-## Angular specific
+# Output of ng build
 dist/
-.angular/cache/
-.angular/config.json
-
-## Environment variables
-.env
-.env.local
-.env.*.local
-
-## IDEs and editors
+build/
+# IDE specific files
 .idea/
 .vscode/
 *.sublime-workspace
-
-## Logs and reports
-*.log
-*.tsbuildinfo
-report.*
-
-## Temporary files
-*.tmp
-*.temp
-
-## Compiled files
-*.out.js
-*.out.js.map
-*.out.css
-*.out.css.map
-
-## System files
-Thumbs.db
+*.sublime-project
+# Temporary system files
 .DS_Store
-
-## Optional npm cache directory
-.npm/
-
-## MacOS files
-*.DS_Store
-
-## Other
+Thumbs.db
+# Logs and debug files
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+# Environment files (customize if you have different env files)
+.env
+.env.local
+.env.*.local
+# Compiled files
+*.js
+*.d.ts
+*.js.map
+# Angular cache and temp files
+.angular/
+# MacOS system files
+._*
+# Coverage files
 coverage/
-/.firebase/
-
-# Custom
-*.bak
+# Optional npm package lock file
+package-lock.json
+# Local Angular CLI configuration files
+.angular-cli.json
+# Editor specific backup files
 *.swp
-*~
+*.bak
+*.tmp
+# Firebase cache files (if using Firebase)
+.firebase/
+# Storybook files (if using Storybook)
+.storybook/
+storybook-static/
+# SASS cache files (optional)
+.sass-cache/
