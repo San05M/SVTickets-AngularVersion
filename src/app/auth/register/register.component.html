@@ -1,5 +1,5 @@
 <div class="container">
-    <form action="#" id="form-register" class="mt-4" method="POST" role="form">
+    <form action="#" id="form-register" class="mt-4" [formGroup]="registerForm" (ngSubmit) = "addUser()">
       <legend>Create an account</legend>
 
       <div class="mb-3">
