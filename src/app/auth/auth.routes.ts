@@ -9,4 +9,12 @@ export const routes: Routes = [
       ),
     title: 'Login',
   },
+  {
+    path: 'register',
+    loadComponent: () =>
+      import('./register/register.component').then(
+        (m) => m.RegisterComponent,
+      ),
+    title: 'Register',
+  },
 ];
