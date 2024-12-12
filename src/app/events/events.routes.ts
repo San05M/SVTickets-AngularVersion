@@ -52,3 +52,5 @@ export const routes: Routes = [
     title: 'Event ',
   },
 ];
+
+/*FIXME: the routers are bad indicate, change it. */
