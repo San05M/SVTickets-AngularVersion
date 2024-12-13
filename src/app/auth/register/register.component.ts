@@ -3,7 +3,7 @@ import { FormControl, FormGroup, FormsModule, ReactiveFormsModule } from '@angul
 import { EncodeBase64Directive } from '../../shared/directives/encode-base64.directive';
 import { DatePipe } from '@angular/common';
 import { ValidationClassesDirective } from '../../shared/directives/validation-classes.directive';
-import { User } from '../../events/interfaces/user';
+import { User } from '../../profile/interfaces/user';
 import { CanComponentDeactivate } from '../../shared/guards/leave-page-guard.guard';
 
 @Component({
