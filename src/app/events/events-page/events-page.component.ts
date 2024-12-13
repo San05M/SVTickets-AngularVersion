@@ -3,7 +3,7 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { FormsModule } from '@angular/forms';
 import { EventCardComponent } from '../event-card/event-card.component';
 import { MyEvent } from '../interfaces/my-event';
-import { EventsService } from '../services/events-service';
+import { EventsService } from '../services/events.service';
 
 @Component({
   selector: 'events-page',

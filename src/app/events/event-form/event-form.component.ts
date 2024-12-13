@@ -14,7 +14,7 @@ import { ValidationClassesDirective } from '../../shared/directives/validation-c
 import { CanComponentDeactivate } from '../../shared/guards/leave-page-guard.guard';
 import { minDateValidator } from '../../shared/validators/min-date.validators';
 import { MyEvent } from '../interfaces/my-event';
-import { EventsService } from '../services/events-service';
+import { EventsService } from '../services/events.service';
 
 @Component({
   selector: 'event-form',

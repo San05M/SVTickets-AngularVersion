@@ -3,8 +3,8 @@ import { Component, DestroyRef, inject, input, output } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { RouterLink } from '@angular/router';
 import { IntlCurrencyPipe } from '../../shared/pipes/intl-currency.pipe';
-import { EventsService } from '../services/events-service';
 import { MyEvent } from '../interfaces/my-event';
+import { EventsService } from '../services/events.service';
 
 @Component({
   selector: 'event-card',
