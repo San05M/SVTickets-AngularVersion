@@ -21,36 +21,26 @@ export const routes: Routes = [
       ),
     title: 'New Event ',
   },
+  // DONE: change the  import to the new component for the edit the event.
   {
-    path: ':id',
-    canActivate: [numericIdGuard],
+    path: 'edit/:id',
     loadComponent: () =>
       import('./event-detail/event-detail.component').then(
         (m) => m.EventDetailComponent,
       ),
-    resolve: { event: eventResolver },
-    title: 'Event ',
-  },
-  {
-    path: ':id/attend',
-    loadComponent: () =>
-      import('./event-detail/event-detail.component').then(
-        (m) => m.EventDetailComponent,
-      ),
-    resolve: { event: eventResolver },
-    title: 'Event ',
-  },
+      resolve: { event: eventResolver },
+      title: 'Edit Event',
+    },
+    {
+      path: ':id',
+      canActivate: [numericIdGuard],
+      loadComponent: () =>
+        import('./event-detail/event-detail.component').then(
+          (m) => m.EventDetailComponent,
+        ),
+      resolve: { event: eventResolver },
+      title: 'Event ',
+    },
+  ];
 
-  // FIXME: change the  import to the new component for the edit the event.
-  {
-    path: ':id/edit',
-    loadComponent: () =>
-      import('./event-detail/event-detail.component').then(
-        (m) => m.EventDetailComponent,
-      ),
-    resolve: { event: eventResolver },
-    title: 'Event ',
-  },
-];
-
-/*FIXME: the routers are bad indicate, change it. */
+/*DONE: the routers are bad indicate, change it. */
