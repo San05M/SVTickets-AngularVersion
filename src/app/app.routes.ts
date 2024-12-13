@@ -9,6 +9,10 @@ export const routes: Routes = [
     loadChildren: () => import('./events/events.routes').then(m => m.routes)
   },
   {
+    path: 'profile',
+    loadChildren: () => import('./profile/profile.routes').then(m => m.routes)
+  },
+  {
     path: '',
     redirectTo: '/events',
     pathMatch: 'full',
