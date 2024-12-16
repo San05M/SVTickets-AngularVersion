@@ -1,5 +1,6 @@
 import { Routes } from '@angular/router';
 import { numericIdGuard } from '../shared/guards/numeric-id-guard.guard';
+import { UserService } from './services/user.service';
 
 export const routes: Routes = [
   {
@@ -17,7 +18,7 @@ export const routes: Routes = [
         import('./profile.component').then(
           (m) => m.ProfileComponent,
         ),
-      resolve: { event: eventResolver },
+      resolve: { user: UserService},
       title: 'Profile',
     },
   ];
