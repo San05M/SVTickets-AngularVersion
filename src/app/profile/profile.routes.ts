@@ -22,5 +22,3 @@ export const routes: Routes = [
       title: 'Profile',
     },
   ];
-
-/*DONE: the routers are bad indicate, change it. */
